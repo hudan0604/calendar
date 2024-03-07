@@ -1,0 +1,9 @@
+<div class="wraper">
+  @for (day of daysList() | slice:0: 7; track day) {
+  <div class="item">{{ day | date : "E" }}</div>
+  } @for (day of daysList(); track day) {
+  <div class="item">
+    {{ day.getMonth() === month ? (day | date : "dd") : "" }}
+  </div>
+  }
+</div>
