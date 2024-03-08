@@ -3,7 +3,7 @@
   <div class="item">{{ day | date : "E" }}</div>
   } @for (day of daysList(); track day) {
   <div class="item">
-    {{ day.getMonth() === month ? (day | date : "dd") : "" }}
+    {{ day.getMonth() === month() ? (day | date : "dd") : "" }}
   </div>
   }
 </div>

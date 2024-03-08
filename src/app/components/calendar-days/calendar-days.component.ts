@@ -11,12 +11,11 @@ import { DateService } from '../../services/date/date.service';
 })
 export class CalendarDaysComponent implements OnInit {
   public daysList = inject(DateService).daysList;
-  public month = inject(DateService).month();
+  public month = inject(DateService).month;
 
   constructor(public dateService: DateService) {}
 
   ngOnInit(): void {
     this.dateService.constructMonthDays();
-    console.log('daysList', this.daysList);
   }
 }

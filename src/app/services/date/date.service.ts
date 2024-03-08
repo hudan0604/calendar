@@ -21,8 +21,6 @@ export class DateService {
     }
     console.log('arr', arr);
     const firstDayNumberInWeek = arr[0]!.getDay() - 1;
-    console.log(firstDayNumberInWeek);
-    const lastDayNumberInWeek = arr[arr.length - 1]!.getDay();
 
     if (firstDayNumberInWeek > 0) {
       const lastMonthNumberOfDays = this.getDaysInMonth(this.month() - 1);
@@ -37,5 +35,27 @@ export class DateService {
       }
     }
     this.daysList.set(arr);
+  }
+
+  public decr() {
+    if (this.month() === 0) {
+      this.month.set(11);
+      this.year.update((val) => val - 1);
+    } else {
+      this.month.update((val) => val - 1);
+    }
+
+    this.constructMonthDays();
+  }
+
+  public incr() {
+    if (this.month() === 11) {
+      this.month.set(0);
+      this.year.update((val) => val + 1);
+    } else {
+      this.month.update((val) => val + 1);
+    }
+
+    this.constructMonthDays();
   }
 }

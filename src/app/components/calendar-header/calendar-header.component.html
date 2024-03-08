@@ -1,4 +1,7 @@
 <!-- Month and Year -->
 <div>{{ date() | date : "MMM" }} {{ year() }}</div>
 <!-- Arrows to change month -->
-<div></div>
+<div class="arrowsWraper">
+  <div (click)="dateService.decr()"><</div>
+  <div (click)="dateService.incr()">></div>
+</div>

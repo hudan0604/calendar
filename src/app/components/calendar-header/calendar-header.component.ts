@@ -5,6 +5,7 @@ import {
   computed,
   input,
 } from '@angular/core';
+import { DateService } from '../../services/date/date.service';
 
 @Component({
   selector: 'cld-calendar-header',
@@ -18,4 +19,6 @@ export class CalendarHeaderComponent {
   public month = input<number>(0);
   public year = input<number>(0);
   public date = computed(() => new Date(this.year(), this.month(), 1));
+
+  constructor(public dateService: DateService) {}
 }
