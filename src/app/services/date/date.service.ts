@@ -19,9 +19,7 @@ export class DateService {
     for (let i = 1; i <= this.getDaysInMonth(this.month()); i++) {
       arr.push(new Date(this.year(), this.month(), i));
     }
-    console.log('arr', arr);
     const firstDayNumberInWeek = arr[0]!.getDay() - 1;
-
     if (firstDayNumberInWeek > 0) {
       const lastMonthNumberOfDays = this.getDaysInMonth(this.month() - 1);
       for (let i = 0; i < firstDayNumberInWeek; i++) {
