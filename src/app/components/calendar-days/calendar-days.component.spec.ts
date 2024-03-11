@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CalendarDay } from '../../models/day.models';
 
 import { CalendarDaysComponent } from './calendar-days.component';
 
@@ -8,10 +9,9 @@ describe('CalendarDaysComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CalendarDaysComponent]
-    })
-    .compileComponents();
-    
+      imports: [CalendarDaysComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CalendarDaysComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

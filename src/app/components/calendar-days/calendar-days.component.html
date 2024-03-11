@@ -1,9 +1,18 @@
-<div class="wraper">
+<div class="daysWraper">
   @for (day of daysList() | slice:0: 7; track day) {
-  <div class="item">{{ day | date : "E" }}</div>
+  <div class="daysWraper__item">{{ day.date | date : "E" }}</div>
   } @for (day of daysList(); track day) {
-  <div class="item">
-    {{ day.getMonth() === month() ? (day | date : "dd") : "" }}
+  <div class="calendarDayWraper">
+    <div
+      (click)="selectDay(day)"
+      [ngClass]="{
+        calendarDayWraper__day: day.date.getMonth() === month(),
+        'calendarDayWraper__day--selected': day.isSelected
+      }"
+    >
+      {{ day.date.getMonth() === month() ? (day.date | date : "dd") : "" }}
+    </div>
   </div>
+
   }
 </div>

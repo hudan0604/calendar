@@ -1,12 +1,35 @@
-.wraper {
+.daysWraper {
   display: flex;
   flex-wrap: wrap;
 
-  .item {
+  @mixin itemCentered {
     width: calc(100% / 7);
     padding: 15px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &__item {
+    @include itemCentered();
+  }
+
+  .calendarDayWraper {
+    @include itemCentered();
+    &__day {
+      cursor: pointer;
+      background: #6db47000;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 150ms linear;
+
+      &--selected {
+        background: #6db470;
+      }
+    }
   }
 }
