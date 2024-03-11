@@ -1,5 +1,5 @@
 <!-- Month and Year -->
-<div>{{ date() | date : "MMM" }} {{ year() }}</div>
+<div data-testid="monthAndYear">{{ date() | date : "MMM" }} {{ year() }}</div>
 <!-- Arrows to change month -->
 <div class="arrowsWraper">
   <div (click)="dateService.decr()"><</div>
