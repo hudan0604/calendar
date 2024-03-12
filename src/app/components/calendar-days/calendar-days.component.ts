@@ -1,6 +1,6 @@
 import { DatePipe, NgClass, SlicePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { CalendarDay } from '../../models/day.models';
+import { DatePickerDay } from '../../models/datePicker.models';
 import { DateService } from '../../services/date/date.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class CalendarDaysComponent implements OnInit {
     this.dateService.constructMonthDays();
   }
 
-  public selectDay(day: CalendarDay) {
+  public selectDay(day: DatePickerDay) {
     const isDaySelected = !!this.daysList().find((day) => day.isSelected);
     if (!isDaySelected) {
       day.isSelected = true;

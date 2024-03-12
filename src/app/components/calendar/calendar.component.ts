@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  inject,
+} from '@angular/core';
 import { DateService } from '../../services/date/date.service';
 import { CalendarDaysComponent } from '../calendar-days/calendar-days.component';
 import { CalendarHeaderComponent } from '../calendar-header/calendar-header.component';
@@ -14,4 +19,15 @@ import { CalendarHeaderComponent } from '../calendar-header/calendar-header.comp
 export class CalendarComponent {
   public month = inject(DateService).month;
   public year = inject(DateService).year;
+  public calendarParams = inject(DateService).calendarParams;
+
+  @HostBinding('style.height') get height() {
+    return this.calendarParams().isOpened ? '406px' : '0';
+  }
+  @HostBinding('style.top') get top() {
+    return this.calendarParams().position.top + 'px';
+  }
+  @HostBinding('style.left') get left() {
+    return this.calendarParams().position.left + 'px';
+  }
 }
