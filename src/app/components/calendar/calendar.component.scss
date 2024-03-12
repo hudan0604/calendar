@@ -6,6 +6,6 @@
   overflow: hidden;
   box-shadow: 0 0 9px 0px #8c8f92;
   border-radius: 8px;
-  transition: height 400ms;
+  transition: height 800ms cubic-bezier(0.29, 1.01, 1, -0.68);
   position: absolute;
 }
