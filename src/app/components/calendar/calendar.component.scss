@@ -1,4 +1,4 @@
-:host {
+.calendar {
   display: flex;
   flex-direction: column;
   width: 335px;
@@ -8,4 +8,16 @@
   border-radius: 8px;
   transition: height 800ms cubic-bezier(0.29, 1.01, 1, -0.68);
   position: absolute;
+  z-index: 1;
+}
+
+.calendarWraperLayout {
+  position: absolute;
+  inset: 0;
+  height: 0;
+  overflow: hidden;
+
+  &--opened {
+    height: 100%;
+  }
 }

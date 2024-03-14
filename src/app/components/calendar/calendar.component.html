@@ -1,3 +1,18 @@
-<cld-calendar-header [month]="month()" [year]="year()"></cld-calendar-header>
+<div
+  class="calendar"
+  [ngStyle]="{
+    top: calendarParams().position.top + 'px',
+    left: calendarParams().position.left + 'px',
+    height: calendarParams().isOpened ? '406px' : 0
+  }"
+>
+  <cld-calendar-header [month]="month()" [year]="year()"></cld-calendar-header>
 
-<cld-calendar-days></cld-calendar-days>
+  <cld-calendar-days></cld-calendar-days>
+</div>
+<div
+  class="calendarWraperLayout"
+  [ngClass]="{ 'calendarWraperLayout--opened': calendarParams().isOpened }"
+  (click)="dateService.handleDatePickerOpening()"
+  data-testid="calendarWraperLayout"
+></div>

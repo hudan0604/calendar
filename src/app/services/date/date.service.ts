@@ -2,6 +2,7 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
 import {
   DatePickerDay,
   DatePickerParams,
+  DatePickerPosition,
 } from '../../models/datePicker.models';
 import { calculateDatePickerPosition } from '../../utils/positioning/positioning.utils';
 
@@ -70,12 +71,17 @@ export class DateService {
     this.constructMonthDays();
   }
 
-  public handleDatePickerOpening(event: MouseEvent) {
+  public handleDatePickerOpening(event?: MouseEvent) {
     this.calendarParams.set(
       new DatePickerParams(
         !this.calendarParams().isOpened,
-        calculateDatePickerPosition(event)
+        event
+          ? calculateDatePickerPosition(event)
+          : DatePickerPosition.getNewObject()
       )
     );
+    if (!this.calendarParams().isOpened) {
+      this.constructMonthDays();
+    }
   }
 }
