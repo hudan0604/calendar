@@ -14,6 +14,7 @@ export class DateService {
 
   public month: WritableSignal<number> = signal(new Date().getMonth());
   public year: WritableSignal<number> = signal(new Date().getFullYear());
+  public day: WritableSignal<number | null> = signal(null);
   public daysList: WritableSignal<Array<DatePickerDay>> = signal([]);
   public calendarParams: WritableSignal<DatePickerParams> = signal(
     DatePickerParams.getNewObject()
@@ -77,7 +78,7 @@ export class DateService {
         !this.calendarParams().isOpened,
         event
           ? calculateDatePickerPosition(event)
-          : DatePickerPosition.getNewObject()
+          : this.calendarParams().position
       )
     );
     if (!this.calendarParams().isOpened) {
